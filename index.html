@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the only food that can never go bad?</h3>
+                <button id="A">
+                    Apples
+                </button>
+                <button id="B">
+                    Honey
+                </button>
+                <button id="C">
+                    Bread
+                </button>
+                <p id="answer_feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>  What did the first webcam ever stream at the University of Cambridge in 1993? </h3>
+                <input id="response"></input>
+                <p id="answerfeedback"></p>
+                <button id="answer">
+                    Check Answer
+                </button>
+
+            </div>
+        </div>
+
+        <script>
+            let button1 = document.querySelector('#A');
+            let button2 = document.querySelector('#B');
+            let button3 = document.querySelector('#C');
+            let answerFeedback = document.getElementById('answer_feedback');
+
+            button1.onclick = function() {
+                button1.style.backgroundColor = 'red';
+                answerFeedback.textContent = 'Incorrect';
+            };
+
+            button2.onclick = function() {
+                button2.style.backgroundColor = 'green';
+                answerFeedback.textContent = 'Correct!';
+            };
+
+            button3.onclick = function() {
+                button3.style.backgroundColor = 'red';
+                answerFeedback.textContent = 'Incorrect';
+            };
+
+            let correct_answer = "coffee pot";
+            let button4 = document.querySelector("#answer");
+            let answer_feedback = document.getElementById('answerfeedback')
+            let responseInput = document.getElementById('response');
+
+            button4.onclick = function() {
+                let user_answer = document.getElementById('response').value.toLowerCase();
+                if (user_answer === correct_answer) {
+                    answer_feedback.textContent = "Correct!";
+                    responseInput.style.backgroundColor = 'green';
+
+                } else {
+                    answer_feedback.textContent = "Incorrect";
+                    responseInput.style.backgroundColor = 'red';
+                }
+            };
+        </script>
+
+    </body>
+</html>
